@@ -60,6 +60,7 @@
 #include "VertexTypes.h"
 #include "WICTextureLoader.h"
 
+
 namespace DX
 {
     inline void ThrowIfFailed(HRESULT hr)

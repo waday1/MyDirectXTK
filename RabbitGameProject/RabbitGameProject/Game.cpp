@@ -5,6 +5,16 @@
 #include "pch.h"
 #include "Game.h"
 
+#include "PxPhysicsAPI.h"
+#pragma comment (lib,"PhysX3CommonDEBUG_x86.lib" )
+#pragma comment (lib,"PhysX3DEBUG_x86.lib" )
+#pragma comment (lib,"PhysX3CookingDEBUG_x86.lib" )
+#pragma comment (lib,"PhysX3CharacterKinematicDEBUG_x86.lib" )
+#pragma comment (lib,"PhysX3ExtensionsDEBUG.lib" )
+#pragma comment (lib,"PhysX3VehicleDEBUG.lib" )
+#pragma comment (lib,"PhysXProfileSDKDEBUG.lib" )
+#pragma comment (lib,"PhysXVisualDebuggerSDKDEBUG.lib" )
+#pragma comment (lib,"PxTaskDEBUG.lib" )
 extern void ExitGame();
 
 using namespace DirectX;
