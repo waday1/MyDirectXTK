@@ -4,8 +4,8 @@
 
 #include "pch.h"
 #include "Game.h"
+#include <iostream>
 
-#include "PxPhysicsAPI.h"
 #pragma comment (lib,"PhysX3CommonDEBUG_x86.lib" )
 #pragma comment (lib,"PhysX3DEBUG_x86.lib" )
 #pragma comment (lib,"PhysX3CookingDEBUG_x86.lib" )
@@ -21,6 +21,10 @@ using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
 using Microsoft::WRL::ComPtr;
+
+
+	physx::PxDefaultErrorCallback Game::gDefaultErrorCallback;
+	physx::PxDefaultAllocator Game::gDefaultAllocatorCallback;
 
 Game::Game() :
     m_window(nullptr),
@@ -47,6 +51,13 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetFixedTimeStep(true);
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
+
+	mFoundation = PxCreateFoundation(PX_FOUNDATION_VERSION, gDefaultAllocatorCallback,gDefaultErrorCallback);
+
+	if (!mFoundation)
+	{
+		OutputDebugString(L"PxFoundation errar\n");
+	}
 }
 
 // Executes the basic game loop.

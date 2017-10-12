@@ -5,6 +5,8 @@
 #pragma once
 
 #include "StepTimer.h"
+#include "PxPhysicsAPI.h"
+
 
 // A basic game implementation that creates a D3D11 device and
 // provides a game loop.
@@ -29,6 +31,8 @@ public:
 
     // Properties
     void GetDefaultSize( int& width, int& height ) const;
+
+
 
 private:
 
@@ -62,5 +66,17 @@ private:
 	DirectX::SimpleMath::Vector2 m_screenPos;
 	DirectX::SimpleMath::Vector2 m_origin;
 
-    DX::StepTimer                                   m_timer;
+	DX::StepTimer                                   m_timer;
+
+public:
+	static physx::PxDefaultErrorCallback gDefaultErrorCallback;
+	static physx::PxDefaultAllocator gDefaultAllocatorCallback;
+
+protected:
+
+	physx::PxFoundation*	mFoundation;
+	physx::PxPvd*                           mPvd;
+	physx::PxPvdTransport*                  mTransport;
+	physx::PxPhysics*						mPhysics;
+
 };
