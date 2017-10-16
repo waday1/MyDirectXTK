@@ -83,6 +83,17 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 
         GetClientRect(hwnd, &rc);
 
+		static physx::PxDefaultErrorCallback gDefaultErrorCallback;
+		static physx::PxDefaultAllocator gDefaultAllocatorCallback;
+		physx::PxFoundation*	mFoundation;
+
+		mFoundation = PxCreateFoundation(PX_FOUNDATION_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
+
+		if (!mFoundation)
+		{
+			OutputDebugString(L"PxFoundation errar\n");
+		}
+
         g_game->Initialize(hwnd, rc.right - rc.left, rc.bottom - rc.top);
     }
 

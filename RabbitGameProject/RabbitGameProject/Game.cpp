@@ -22,10 +22,6 @@ using namespace DirectX::SimpleMath;
 
 using Microsoft::WRL::ComPtr;
 
-
-	physx::PxDefaultErrorCallback Game::gDefaultErrorCallback;
-	physx::PxDefaultAllocator Game::gDefaultAllocatorCallback;
-
 Game::Game() :
     m_window(nullptr),
     m_outputWidth(800),
@@ -52,12 +48,6 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
 
-	mFoundation = PxCreateFoundation(PX_FOUNDATION_VERSION, gDefaultAllocatorCallback,gDefaultErrorCallback);
-
-	if (!mFoundation)
-	{
-		OutputDebugString(L"PxFoundation errar\n");
-	}
 }
 
 // Executes the basic game loop.

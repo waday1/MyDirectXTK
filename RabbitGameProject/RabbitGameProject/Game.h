@@ -68,13 +68,8 @@ private:
 
 	DX::StepTimer                                   m_timer;
 
-public:
-	static physx::PxDefaultErrorCallback gDefaultErrorCallback;
-	static physx::PxDefaultAllocator gDefaultAllocatorCallback;
-
 protected:
 
-	physx::PxFoundation*	mFoundation;
 	physx::PxPvd*                           mPvd;
 	physx::PxPvdTransport*                  mTransport;
 	physx::PxPhysics*						mPhysics;
